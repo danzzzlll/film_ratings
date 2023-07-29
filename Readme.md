@@ -1,6 +1,8 @@
 # Классификатор рейтингов отзывов по датасету IMDB v1
 
-В качестве модели был взят предобученный BertForSequenceClassification 'prajjwal1/bert-tiny'
+В качестве модели был взят предобученные 
+                                        
+                                        BertForSequenceClassification 'prajjwal1/bert-tiny'
                                          
                                          
                                          BertTokenizerFast 'prajjwal1/bert-tiny'
