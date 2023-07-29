@@ -17,8 +17,8 @@ def get_prediction(text):
     return max_index
 
 def load_models(path:str):
-    model = BertForSequenceClassification.from_pretrained(path+'model', num_labels=8)
-    tokenizer = BertTokenizerFast.from_pretrained(path+'tokenizer', do_lower_case=True)
+    model = BertForSequenceClassification.from_pretrained(path+'model/', num_labels=8)
+    tokenizer = BertTokenizerFast.from_pretrained(path+'tokenizer/', do_lower_case=True)
     return model, tokenizer
 
 def sentiment(rating):
