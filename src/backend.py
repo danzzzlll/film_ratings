@@ -1,4 +1,4 @@
-from transformers import BertForSequenceClassification, BertTokenizerFast
+from transformers import BertForSequenceClassification, BertTokenizerFast, BertConfig
 from pathlib import Path
 
 
@@ -18,8 +18,10 @@ def get_prediction(text):
     return max_index
 
 def load_models(path:str):
-    model = BertForSequenceClassification.from_pretrained(path+'classifier/', num_labels=8)
-    tokenizer = BertTokenizerFast.from_pretrained(path+'tokenizer_fast/', do_lower_case=True)
+    # model = BertForSequenceClassification.from_pretrained(path+'model/', num_labels=8)
+    config = BertConfig.from_json_file(path+'model/'+'config.json')
+    model = BertForSequenceClassification.from_pretrained(path+'model/', num_labels=8, config=config)
+    tokenizer = BertTokenizerFast.from_pretrained(path+'tokenizer/', do_lower_case=True)
     return model, tokenizer
 
 def sentiment(rating):
@@ -28,7 +30,7 @@ def sentiment(rating):
     else:
         return 'Negative review'
 
-path = '/app/film_ratings/models_rating/'
+path = '/app/film_ratings/models/'
 
 dct = {1:0, 2:1, 3:2, 4:3, 7:4, 8:5, 9:6, 10:7}
 model, tokenizer = load_models(path)
