@@ -30,7 +30,7 @@ def sentiment(rating):
     else:
         return 'Negative review'
 
-path = "/film_ratings/models/"
+path = "danzzzlll/film_ratings/models/"
 
 dct = {1:0, 2:1, 3:2, 4:3, 7:4, 8:5, 9:6, 10:7}
 model, tokenizer = load_models(path)
