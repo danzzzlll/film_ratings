@@ -21,7 +21,7 @@ def load_models(path:str):
     # model = BertForSequenceClassification.from_pretrained(path+'model/', num_labels=8)
     # config = BertConfig.from_json_file(path+"model/"+"config.json")
     # model = BertForSequenceClassification.from_pretrained(path+"model/", num_labels=8, config=config)
-    tokenizer = BertTokenizerFast.from_pretrained(path+"tokenizer/", do_lower_case=True)
+    tokenizer = BertTokenizerFast.from_pretrained(path+"tokenizer/vocab.txt", do_lower_case=True)
     return model, tokenizer
 
 def sentiment(rating):
